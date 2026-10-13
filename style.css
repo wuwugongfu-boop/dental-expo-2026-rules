@@ -1,0 +1,58 @@
+/* Layout: navy "expo night" ground, one narrow reading column of cream rule cards, gold for numbers and the active chip. One deliberate look for every viewer. */
+:root{
+  --navy:#132a5e; --navy-2:#0d1f4a; --navy-3:#1f3c7d;
+  --paper:#fbf6ea; --paper-2:#f3ead5; --line:#dccfb1;
+  --ink:#1f1a12; --ink-2:#5a4f3d;
+  --gold:#f2b31b; --gold-ink:#7a4d00; --red:#c8321e; --sky:#cfe0ff;
+  --f-display:"Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-num:"Fredoka","Noto Sans TC",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--navy-2);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* hero */
+.hero{background:radial-gradient(120% 90% at 85% 0%,#2c55a8 0%,var(--navy) 55%,var(--navy-2) 100%);color:#fff;padding-inline:16px;padding-block:28px 22px}
+.hero-in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;align-items:end}
+.eyebrow{font-size:14px;letter-spacing:.08em;color:var(--sky);margin:0}
+.hero h1{font-family:var(--f-display);font-weight:400;font-size:clamp(38px,10vw,60px);line-height:1.1;margin:6px 0 4px;color:var(--gold);text-wrap:balance;text-shadow:0 3px 0 #8a4b00}
+.hero .sub{margin:0;color:#e6ecff;font-size:15px}
+.hero-img{width:clamp(140px,38vw,240px);grid-row:1 / span 2;grid-column:2;align-self:center}
+.facts{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:4px 12px;font-size:14px;color:#fff;background:rgba(255,255,255,.06)}
+.pot{grid-column:1 / -1;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.3)}
+.pot b{font-family:var(--f-num);font-weight:600;font-size:44px;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.pot span{font-size:14px;color:#e6ecff}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy-2);border-bottom:1px solid rgba(255,255,255,.12)}
+.nav-in{max-width:760px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+.nav a{flex:none;text-decoration:none;color:#fff;font-size:14px;padding:6px 14px;border-radius:999px;background:var(--navy-3)}
+.nav a:hover{background:var(--gold);color:var(--ink)}
+
+/* sections */
+.sec{background:var(--paper);border-radius:18px;margin-top:18px;padding:20px 18px 18px;position:relative;scroll-margin-top:70px;box-shadow:0 6px 0 #091738}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;min-height:64px}
+.sec-head h2{font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.25;margin:0;flex:1;min-width:0;text-wrap:balance;color:var(--navy)}
+.sec-head img{width:84px;height:auto;flex:none}
+.sec p{margin:0 0 12px}
+.sec h3{font-size:16px;margin:16px 0 8px;color:var(--navy)}
+.sec strong{color:var(--red);font-weight:700}
+.sec ol,.sec ul{margin:0 0 12px;padding-left:1.4em;display:grid;gap:8px}
+.sec li::marker{color:var(--gold-ink);font-weight:700}
+.tbl{overflow-x:auto;margin:0 0 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--navy);color:#fff;font-weight:500;white-space:nowrap}
+td:first-child{font-weight:700;color:var(--navy);min-width:6.5em}
+.note{background:var(--paper-2);border:1px dashed var(--gold-ink);border-radius:12px;padding:10px 14px;font-size:15px;color:var(--ink-2);margin:0 0 4px}
+.foot{color:#c3cdea;font-size:13px;text-align:center;margin-top:28px;display:grid;gap:4px}
+.foot b{color:#fff;font-weight:500}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html{scroll-behavior:smooth}
