@@ -56,3 +56,4 @@ td:first-child{font-weight:700;color:var(--navy);min-width:6.5em}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 html{scroll-behavior:smooth}
+.fig{margin:0 0 12px}.fig img{display:block;width:100%;border-radius:12px;border:1px solid var(--line)}.fig figcaption{font-size:14px;color:var(--ink-2);margin-top:6px;text-align:center}

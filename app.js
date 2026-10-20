@@ -26,6 +26,8 @@
       if (!t) { close(); continue; }
       var meta = kv(t);
       if (!sec.blocks.length && meta && (meta[0] === "目錄" || meta[0] === "插圖")) { if (meta[0] === "目錄") sec.nav = meta[1]; else sec.img = meta[1]; continue; }
+      var pic = t.match(/^圖片[：:]\s*([A-Za-z0-9_-]+)\s*(.*)$/);
+      if (pic) { sec.blocks.push({ type: "img", key: pic[1], text: pic[2].replace(/^[｜|]\s*/, "") }); close(); continue; }
       if (/^###\s+/.test(t)) { sec.blocks.push({ type: "h", text: t.replace(/^###\s+/, "") }); close(); continue; }
       if (t.charAt(0) === "|") {
         if (/^\|?[\s:\-|]+\|?$/.test(t)) continue;
@@ -53,6 +55,7 @@
 
   function block(b) {
     if (b.type === "p") return "<p>" + inl(b.text) + "</p>";
+    if (b.type === "img") return '<figure class="fig"><img src="img/' + encodeURIComponent(b.key) + '.webp" alt="' + esc(b.text || "示意圖") + '">' + (b.text ? "<figcaption>" + inl(b.text) + "</figcaption>" : "") + "</figure>";
     if (b.type === "h") return "<h3>" + inl(b.text) + "</h3>";
     if (b.type === "note") return '<p class="note">' + inl(b.text) + "</p>";
     if (b.type === "ol" || b.type === "ul") return "<" + b.type + ">" + b.items.map(function (x) { return "<li>" + inl(x) + "</li>"; }).join("") + "</" + b.type + ">";
